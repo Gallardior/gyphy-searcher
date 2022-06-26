@@ -1,0 +1,29 @@
+.Searcher {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.Searcher__input {
+  padding: 1rem;
+  font-size: 1.25rem;
+  border: none;
+}
+
+.Searcher__button {
+  font-size: 1.25rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+@media screen and (max-width: 1024px) { 
+  .Searcher__input {
+    width: 70%;
+  }
+  
+  .Searcher__button {
+    font-size: 1.25rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }
+}

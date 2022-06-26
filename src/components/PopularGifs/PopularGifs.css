@@ -1,0 +1,71 @@
+.PopularGifs {
+  position: fixed;
+  z-index: 1;
+  top: 10vh;
+  right: 0;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(8px);
+  display: grid;
+  gap: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.PopularGifs h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.PopularGifs a {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: all .3s;
+}
+/* .PopularGifs a:nth-of-type(5n + 1) {
+  color: var(--brand-color_1);
+}
+.PopularGifs a:nth-of-type(5n + 2) {
+  color: var(--brand-color_2);
+}
+.PopularGifs a:nth-of-type(5n + 3) {
+  color: var(--brand-color_3);
+}
+.PopularGifs a:nth-of-type(5n + 4) {
+  color: var(--brand-color_4);
+}
+.PopularGifs a:nth-of-type(5n + 5) {
+  color: var(--brand-color_5);
+} */
+
+.PopularGifs a:hover {
+  color: var(--brand-color_4);
+}
+
+@media screen and (max-width: 1024px) {
+  .PopularGifs--lazy {
+    order: 10;
+  }
+
+  .PopularGifs {
+    position: initial;
+    order: 10;
+    max-height: none;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .PopularGifs h2 {
+    font-size: 1.25rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .PopularGifs a {
+    font-size: 1rem;
+  }
+}
