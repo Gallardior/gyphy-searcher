@@ -1,9 +1,7 @@
 import React, { Suspense } from 'react'
 import { Route } from 'wouter'
-
 import { Logo } from "./components/Logo/Logo"
 import { Searcher } from './components/Searcher/Searcher'
-
 const Home = React.lazy( () => import('./pages/Home/Home'))
 const Results = React.lazy( () => import('./pages/Results/Results'))
 const Details = React.lazy( () => import('./pages/Details/Details'))

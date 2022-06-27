@@ -5,6 +5,7 @@ import { Loader } from '../../components/Loader/Loader'
 import { useGifs } from "../../hooks/useGifs"
 import { useNearScreen } from "../../hooks/useNearScreen"
 import debounce from "just-debounce-it"
+import { Helmet } from "react-helmet"
 
 export default function Results ({params}) {
   const {gifs, loading, setPage} = useGifs({keyword: params.keyword})
@@ -28,8 +29,17 @@ export default function Results ({params}) {
       <h1>{ decodeURI(params.keyword) }</h1>
       {
         loading 
-          ? <Loader />
+          ? <>
+            <Loader />
+            <Helmet>
+              <title>Cargando...</title>
+            </Helmet>
+          </>
           : <>
+              <Helmet>
+                <title>{`${gifs.length} results of ${decodeURI(params.keyword)} | Giphy`}</title>
+                <meta name="description" content={`${gifs.length} results of ${decodeURI(params.keyword)} | Giphy`} />
+              </Helmet>
               <ListOfGifs gifs={ gifs } /> 
               <div id="visor" ref={externalRef}></div>
             </>

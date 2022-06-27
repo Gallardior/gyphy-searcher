@@ -5,6 +5,7 @@ import LazyPopularGifs from "../../components/PopularGifs/LazyPopularGifs"
 import { Loader } from '../../components/Loader/Loader'
 import { useNearScreen } from "../../hooks/useNearScreen"
 import debounce from "just-debounce-it"
+import { Helmet } from "react-helmet"
 
 
 export default function Home () {
@@ -26,8 +27,17 @@ export default function Home () {
       <h1>Ultima busqueda:</h1>
       {
         loading 
-          ? <Loader />
+          ? <>
+            <Loader />
+            <Helmet>
+              <title>Cargando...</title>
+            </Helmet>
+          </>
           : <>
+            <Helmet>
+              <title>Giphy</title>
+              <meta name="description" content="Giphy searcher" />
+            </Helmet>
             <ListOfGifs gifs={ gifs } /> 
             <div id="visor" ref={externalRef}></div>
           </> 
