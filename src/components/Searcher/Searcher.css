@@ -2,6 +2,11 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--theme-body-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .Searcher__input {
@@ -11,9 +16,17 @@
 }
 
 .Searcher__button {
+  border: 1px solid var(--brand-color_3);
   font-size: 1.25rem;
   padding: 1rem;
-  border: 1px solid #ccc;
+  background-color: var(--brand-color_3);
+  color: #FFF;
+}
+
+.Searcher select {
+  border: 1px solid transparent;
+  font-size: 1.25rem;
+  padding: 1rem;
 }
 
 @media screen and (max-width: 1024px) { 

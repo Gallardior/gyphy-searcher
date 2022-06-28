@@ -6,9 +6,11 @@ import { useGifs } from "../../hooks/useGifs"
 import { useNearScreen } from "../../hooks/useNearScreen"
 import debounce from "just-debounce-it"
 import { Helmet } from "react-helmet"
+import { Searcher } from "../../components/Searcher/Searcher"
 
 export default function Results ({params}) {
-  const {gifs, loading, setPage} = useGifs({keyword: params.keyword})
+  const {keyword, rating = 'g'} = params
+  const {gifs, loading, setPage} = useGifs({keyword, rating})
   const externalRef = useRef()
   const {isNearScreen} = useNearScreen({
     externalRef: loading ? null : externalRef, 
@@ -26,7 +28,7 @@ export default function Results ({params}) {
   return (
     <>
       <LazyPopularGifs />
-      <h1>{ decodeURI(params.keyword) }</h1>
+      <h1>{ decodeURI(keyword) }</h1>
       {
         loading 
           ? <>
@@ -37,9 +39,10 @@ export default function Results ({params}) {
           </>
           : <>
               <Helmet>
-                <title>{`${gifs.length} results of ${decodeURI(params.keyword)} | Giphy`}</title>
-                <meta name="description" content={`${gifs.length} results of ${decodeURI(params.keyword)} | Giphy`} />
+                <title>{`${gifs.length} results of ${decodeURI(keyword)} | Giphy`}</title>
+                <meta name="description" content={`${gifs.length} results of ${decodeURI(keyword)} | Giphy`} />
               </Helmet>
+              <Searcher initialKeyword={keyword} initialRating={rating} />
               <ListOfGifs gifs={ gifs } /> 
               <div id="visor" ref={externalRef}></div>
             </>

@@ -6,6 +6,7 @@ import { Loader } from '../../components/Loader/Loader'
 import { useNearScreen } from "../../hooks/useNearScreen"
 import debounce from "just-debounce-it"
 import { Helmet } from "react-helmet"
+import { Searcher } from "../../components/Searcher/Searcher"
 
 
 export default function Home () {
@@ -38,6 +39,7 @@ export default function Home () {
               <title>Giphy</title>
               <meta name="description" content="Giphy searcher" />
             </Helmet>
+            <Searcher />
             <ListOfGifs gifs={ gifs } /> 
             <div id="visor" ref={externalRef}></div>
           </> 

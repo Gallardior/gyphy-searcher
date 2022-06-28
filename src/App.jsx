@@ -19,11 +19,11 @@ function App() {
   return (
     <main className="App container">
       <Logo />
-      <Searcher />
       <GifsContextProvider>
         <Suspense fallback={null}>
           <Route path="/" component={Home} />
-          <Route path="/gifs/:keyword" component={Results} />
+          {/* <Route path="/gifs/:keyword" component={Results} /> */}
+          <Route path="/gifs/:keyword/:rating?" component={Results} />
           <Route path="/gif/:id" component={Details} />
         </Suspense>
       </GifsContextProvider>

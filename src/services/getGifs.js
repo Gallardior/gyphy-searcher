@@ -4,8 +4,8 @@ const API_RATING = 'r'
 const API_LANG = 'en'
 
 
-export function getGifs({ keyword = 'Morty', page = 0}) {
-  const API_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${ keyword }&limit=${ API_LIMIT }&offset=${page * API_LIMIT}&rating=${API_RATING}&lang=${API_LANG}`
+export function getGifs({ keyword = 'Morty', page = 0, rating}) {
+  const API_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${ keyword }&limit=${ API_LIMIT }&offset=${page * API_LIMIT}&rating=${rating}&lang=${API_LANG}`
 
   return fetch(API_URL)
     .then(res => res.json())
