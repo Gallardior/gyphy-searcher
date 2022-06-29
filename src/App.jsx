@@ -1,13 +1,9 @@
 import React, { Suspense } from 'react'
-import { Route } from 'wouter'
+import { Route, Switch } from 'wouter'
 import { Logo } from "./components/Logo/Logo"
-import { Searcher } from './components/Searcher/Searcher'
 const Home = React.lazy( () => import('./pages/Home/Home'))
 const Results = React.lazy( () => import('./pages/Results/Results'))
 const Details = React.lazy( () => import('./pages/Details/Details'))
-// import { Home } from './pages/Home/Home'
-// import { Results } from './pages/Results/Results'
-// import { Details } from './pages/Details/Details'
 
 import { GifsContextProvider } from './context/GifsContexts'
 
@@ -21,10 +17,12 @@ function App() {
       <Logo />
       <GifsContextProvider>
         <Suspense fallback={null}>
+        <Switch>
           <Route path="/" component={Home} />
           {/* <Route path="/gifs/:keyword" component={Results} /> */}
           <Route path="/gifs/:keyword/:rating?" component={Results} />
           <Route path="/gif/:id" component={Details} />
+        </Switch>
         </Suspense>
       </GifsContextProvider>
     </main>

@@ -1,6 +1,6 @@
 .PopularGifs {
   position: fixed;
-  z-index: 1;
+  z-index: 999;
   top: 10vh;
   right: 0;
   padding: 1.5rem;

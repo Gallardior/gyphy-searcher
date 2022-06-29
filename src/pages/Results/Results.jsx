@@ -28,6 +28,7 @@ export default function Results ({params}) {
   return (
     <>
       <LazyPopularGifs />
+      <Searcher initialKeyword={keyword} initialRating={rating} />
       <h1>{ decodeURI(keyword) }</h1>
       {
         loading 
@@ -42,7 +43,6 @@ export default function Results ({params}) {
                 <title>{`${gifs.length} results of ${decodeURI(keyword)} | Giphy`}</title>
                 <meta name="description" content={`${gifs.length} results of ${decodeURI(keyword)} | Giphy`} />
               </Helmet>
-              <Searcher initialKeyword={keyword} initialRating={rating} />
               <ListOfGifs gifs={ gifs } /> 
               <div id="visor" ref={externalRef}></div>
             </>

@@ -25,6 +25,7 @@ export default function Home () {
   return(
     <>
       <LazyPopularGifs />
+      <Searcher />
       <h1>Ultima busqueda:</h1>
       {
         loading 
@@ -39,7 +40,6 @@ export default function Home () {
               <title>Giphy</title>
               <meta name="description" content="Giphy searcher" />
             </Helmet>
-            <Searcher />
             <ListOfGifs gifs={ gifs } /> 
             <div id="visor" ref={externalRef}></div>
           </> 
